@@ -12,3 +12,18 @@ C:\Users\lab5.LABTEC\Desktop\Ivan_cadastro\Loja de games\obj\Debug\Loja de games
 C:\Users\lab5.LABTEC\Desktop\Ivan_cadastro\Loja de games\obj\Debug\Loja de games.pdb
 C:\Users\lab5.LABTEC\Desktop\Ivan_cadastro\Loja de games\obj\Debug\Interop.ADODB.dll
 C:\Users\lab5.LABTEC\Desktop\Ivan_cadastro\Loja de games\obj\Debug\Loja de games.vbproj.ResolveComReference.cache
+C:\Users\13iva\source\repos\Loja-de-Games\Loja de games\bin\Debug\Loja de games.exe.config
+C:\Users\13iva\source\repos\Loja-de-Games\Loja de games\bin\Debug\Loja de games.exe
+C:\Users\13iva\source\repos\Loja-de-Games\Loja de games\bin\Debug\Loja de games.pdb
+C:\Users\13iva\source\repos\Loja-de-Games\Loja de games\bin\Debug\Loja de games.xml
+C:\Users\13iva\source\repos\Loja-de-Games\Loja de games\obj\Debug\Loja de games.vbproj.AssemblyReference.cache
+C:\Users\13iva\source\repos\Loja-de-Games\Loja de games\obj\Debug\Interop.ADODB.dll
+C:\Users\13iva\source\repos\Loja-de-Games\Loja de games\obj\Debug\Loja de games.vbproj.ResolveComReference.cache
+C:\Users\13iva\source\repos\Loja-de-Games\Loja de games\obj\Debug\Loja_de_games.Form1.resources
+C:\Users\13iva\source\repos\Loja-de-Games\Loja de games\obj\Debug\Loja_de_games.Resources.resources
+C:\Users\13iva\source\repos\Loja-de-Games\Loja de games\obj\Debug\Loja de games.vbproj.GenerateResource.cache
+C:\Users\13iva\source\repos\Loja-de-Games\Loja de games\obj\Debug\Loja de games.vbproj.CoreCompileInputs.cache
+C:\Users\13iva\source\repos\Loja-de-Games\Loja de games\obj\Debug\Loja de games.exe
+C:\Users\13iva\source\repos\Loja-de-Games\Loja de games\obj\Debug\Loja de games.xml
+C:\Users\13iva\source\repos\Loja-de-Games\Loja de games\obj\Debug\Loja de games.pdb
+C:\Users\13iva\source\repos\Loja-de-Games\Loja de games\obj\Debug\Loja_de_games.Form2.resources

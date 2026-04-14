@@ -27,6 +27,21 @@ Loja de games
   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Loja_de_games.My.Resources.Resources.Editar">
+<summary>
+  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Loja_de_games.My.Resources.Resources.Excluir">
+<summary>
+  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Loja_de_games.My.Resources.Resources.fundomenu">
+<summary>
+  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Loja_de_games.My.Resources.Resources.Gravar">
 <summary>
   Consulta um recurso localizado do tipo System.Drawing.Bitmap.

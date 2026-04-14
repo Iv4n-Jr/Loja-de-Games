@@ -22,6 +22,9 @@ Partial Class Form1
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -40,16 +43,6 @@ Partial Class Form1
         Me.cmb_data_venda = New System.Windows.Forms.DateTimePicker()
         Me.img_foto = New System.Windows.Forms.PictureBox()
         Me.dgv_dados = New System.Windows.Forms.DataGridView()
-        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Nome = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Categoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Empresa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Cliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Custo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Preco = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Data_venda = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Editar = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Excluir = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.btn_gravar = New System.Windows.Forms.ToolStripButton()
@@ -58,6 +51,17 @@ Partial Class Form1
         Me.ToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
         Me.cmb_campo = New System.Windows.Forms.ToolStripComboBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Nome = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Categoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Empresa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Cliente = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Custo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Preco = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Data_venda = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Lucro = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Editar = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.Excluir = New System.Windows.Forms.DataGridViewImageColumn()
         CType(Me.img_foto, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv_dados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip1.SuspendLayout()
@@ -215,69 +219,43 @@ Partial Class Form1
         '
         'dgv_dados
         '
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_dados.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgv_dados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_dados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.Nome, Me.Categoria, Me.Empresa, Me.Cliente, Me.Custo, Me.Preco, Me.Data_venda, Me.Editar, Me.Excluir})
+        Me.dgv_dados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.Nome, Me.Categoria, Me.Empresa, Me.Cliente, Me.Custo, Me.Preco, Me.Data_venda, Me.Lucro, Me.Editar, Me.Excluir})
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_dados.DefaultCellStyle = DataGridViewCellStyle2
         Me.dgv_dados.Location = New System.Drawing.Point(91, 764)
         Me.dgv_dados.Name = "dgv_dados"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_dados.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.dgv_dados.Size = New System.Drawing.Size(1739, 256)
         Me.dgv_dados.TabIndex = 18
-        '
-        'ID
-        '
-        Me.ID.HeaderText = "ID"
-        Me.ID.Name = "ID"
-        '
-        'Nome
-        '
-        Me.Nome.HeaderText = "Nome"
-        Me.Nome.Name = "Nome"
-        '
-        'Categoria
-        '
-        Me.Categoria.HeaderText = "Categoria"
-        Me.Categoria.Name = "Categoria"
-        '
-        'Empresa
-        '
-        Me.Empresa.HeaderText = "Empresa"
-        Me.Empresa.Name = "Empresa"
-        '
-        'Cliente
-        '
-        Me.Cliente.HeaderText = "Cliente"
-        Me.Cliente.Name = "Cliente"
-        '
-        'Custo
-        '
-        Me.Custo.HeaderText = "Custo"
-        Me.Custo.Name = "Custo"
-        '
-        'Preco
-        '
-        Me.Preco.HeaderText = "Preco"
-        Me.Preco.Name = "Preco"
-        '
-        'Data_venda
-        '
-        Me.Data_venda.HeaderText = "Data_venda"
-        Me.Data_venda.Name = "Data_venda"
-        '
-        'Editar
-        '
-        Me.Editar.HeaderText = "Editar"
-        Me.Editar.Name = "Editar"
-        '
-        'Excluir
-        '
-        Me.Excluir.HeaderText = "Excluir"
-        Me.Excluir.Name = "Excluir"
         '
         'ToolStrip1
         '
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.btn_gravar, Me.ToolStripLabel2, Me.txt_buscar, Me.ToolStripLabel3, Me.cmb_campo})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(1904, 25)
+        Me.ToolStrip1.Size = New System.Drawing.Size(1370, 25)
         Me.ToolStrip1.TabIndex = 19
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -325,12 +303,75 @@ Partial Class Form1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
+        'ID
+        '
+        Me.ID.HeaderText = "ID"
+        Me.ID.Name = "ID"
+        '
+        'Nome
+        '
+        Me.Nome.HeaderText = "Nome"
+        Me.Nome.Name = "Nome"
+        '
+        'Categoria
+        '
+        Me.Categoria.HeaderText = "Categoria"
+        Me.Categoria.Name = "Categoria"
+        '
+        'Empresa
+        '
+        Me.Empresa.HeaderText = "Empresa"
+        Me.Empresa.Name = "Empresa"
+        '
+        'Cliente
+        '
+        Me.Cliente.HeaderText = "Cliente"
+        Me.Cliente.Name = "Cliente"
+        '
+        'Custo
+        '
+        Me.Custo.HeaderText = "Custo"
+        Me.Custo.Name = "Custo"
+        '
+        'Preco
+        '
+        Me.Preco.HeaderText = "Preco"
+        Me.Preco.Name = "Preco"
+        '
+        'Data_venda
+        '
+        Me.Data_venda.HeaderText = "Data_venda"
+        Me.Data_venda.Name = "Data_venda"
+        '
+        'Lucro
+        '
+        Me.Lucro.HeaderText = "Lucro"
+        Me.Lucro.Name = "Lucro"
+        '
+        'Editar
+        '
+        Me.Editar.HeaderText = "Editar"
+        Me.Editar.Image = Global.Loja_de_games.My.Resources.Resources.Editar
+        Me.Editar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch
+        Me.Editar.Name = "Editar"
+        Me.Editar.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
+        'Excluir
+        '
+        Me.Excluir.HeaderText = "Excluir"
+        Me.Excluir.Image = Global.Loja_de_games.My.Resources.Resources.Excluir
+        Me.Excluir.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch
+        Me.Excluir.Name = "Excluir"
+        Me.Excluir.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Excluir.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.Loja_de_games.My.Resources.Resources.background
-        Me.ClientSize = New System.Drawing.Size(1904, 1041)
+        Me.ClientSize = New System.Drawing.Size(1370, 749)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.dgv_dados)
         Me.Controls.Add(Me.img_foto)
@@ -352,6 +393,7 @@ Partial Class Form1
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form1"
         Me.Text = "MENU"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.img_foto, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgv_dados, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStrip1.ResumeLayout(False)
@@ -378,16 +420,6 @@ Partial Class Form1
     Friend WithEvents cmb_data_venda As DateTimePicker
     Friend WithEvents img_foto As PictureBox
     Friend WithEvents dgv_dados As DataGridView
-    Friend WithEvents ID As DataGridViewTextBoxColumn
-    Friend WithEvents Nome As DataGridViewTextBoxColumn
-    Friend WithEvents Categoria As DataGridViewTextBoxColumn
-    Friend WithEvents Empresa As DataGridViewTextBoxColumn
-    Friend WithEvents Cliente As DataGridViewTextBoxColumn
-    Friend WithEvents Custo As DataGridViewTextBoxColumn
-    Friend WithEvents Preco As DataGridViewTextBoxColumn
-    Friend WithEvents Data_venda As DataGridViewTextBoxColumn
-    Friend WithEvents Editar As DataGridViewTextBoxColumn
-    Friend WithEvents Excluir As DataGridViewTextBoxColumn
     Friend WithEvents ToolStrip1 As ToolStrip
     Friend WithEvents ToolStripLabel1 As ToolStripLabel
     Friend WithEvents btn_gravar As ToolStripButton
@@ -396,4 +428,15 @@ Partial Class Form1
     Friend WithEvents ToolStripLabel3 As ToolStripLabel
     Friend WithEvents cmb_campo As ToolStripComboBox
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents ID As DataGridViewTextBoxColumn
+    Friend WithEvents Nome As DataGridViewTextBoxColumn
+    Friend WithEvents Categoria As DataGridViewTextBoxColumn
+    Friend WithEvents Empresa As DataGridViewTextBoxColumn
+    Friend WithEvents Cliente As DataGridViewTextBoxColumn
+    Friend WithEvents Custo As DataGridViewTextBoxColumn
+    Friend WithEvents Preco As DataGridViewTextBoxColumn
+    Friend WithEvents Data_venda As DataGridViewTextBoxColumn
+    Friend WithEvents Lucro As DataGridViewTextBoxColumn
+    Friend WithEvents Editar As DataGridViewImageColumn
+    Friend WithEvents Excluir As DataGridViewImageColumn
 End Class

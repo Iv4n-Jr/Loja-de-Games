@@ -10,9 +10,9 @@
         '
         Try
             With Form1.cmb_campo.Items
-                .Add("Nome")
-                .Add("Descricao")
-                .Add("Marca")
+                .Add("nome")
+                .Add("categoria")
+                .Add("empresa_distribuidora")
             End With
             Form1.cmb_campo.SelectedIndex = 0
         Catch ex As Exception
@@ -30,8 +30,7 @@
                 cont = 0
                 .Rows.Clear()
                 Do While rs.EOF = False 'Faça enquanto existir registros
-                    cont = cont + 1
-                    .Rows.Add(cont, rs.Fields(1).Value, rs.Fields(2).Value, rs.Fields(3).Value, rs.Fields(4).Value, rs.Fields(5).Value, rs.Fields(6), rs.Fields(7).Value, rs.Fields(8).Value, rs.Fields(9).Value, rs.Fields(10).Value)
+                    .Rows.Add(rs.Fields(0).Value, rs.Fields(1).Value, rs.Fields(2).Value, rs.Fields(3).Value, rs.Fields(4).Value, rs.Fields(5).Value, rs.Fields(6).Value, rs.Fields(7).Value, rs.Fields(8).Value)
                     rs.MoveNext() 'Mover para próximo registro
                 Loop
 
@@ -45,13 +44,13 @@
     Sub Conecta_banco() 'String de Conexão SQL-SERVER
         Try 'Tratamento de erros e exceções (Try e Catch)
             db = CreateObject("ADODB.Connection")
-            db.Open("Provider=SQLOLEDB;DataSource=LAB5-15;Initial Catalog=loja_games;trusted_connection=yes;")
+            db.Open("Provider=SQLOLEDB;Data Source=.\SQLEXPRESS;Initial Catalog=loja_games;trusted_connection=yes;")
             'SQLOLEDB = SQL SERVER, nome tecnico
             'DataSource = nome do servidor SQL
             'Initial Catalog = nome do banco
             'trusted_connection = autenticação pelo windows, poderia ser usado também "user='xxxx';pwd='12';"
 
-            MsgBox("Conexão OK", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "AVISO") 'Aviso de conexão bem sucedida
+                MsgBox("Conexão OK", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "AVISO") 'Aviso de conexão bem sucedida
         Catch ex As Exception
             MsgBox("Erro ao Conectar", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "AVISO") 'Aviso de erro de conexão
         End Try

@@ -1,6 +1,4 @@
-﻿Imports System.Numerics
-
-Public Class Form1
+﻿Public Class Form1
     Private Sub Img_foto_Click(sender As Object, e As EventArgs) Handles img_foto.Click
         Try
             With OpenFileDialog1
@@ -19,9 +17,15 @@ Public Class Form1
         Conecta_banco()
         Carregar_dados()
         Carregar_tipo()
+        Me.AutoScroll = True
     End Sub
 
     Private Sub Btn_gravar_Click(sender As Object, e As EventArgs) Handles btn_gravar.Click
+        Dim custo As Double = CDbl(txt_custo.Text)
+        Dim preco As Double = CDbl(txt_preco.Text)
+
+        Dim custoSQL = custo.ToString(System.Globalization.CultureInfo.InvariantCulture)
+        Dim precoSQL = preco.ToString(System.Globalization.CultureInfo.InvariantCulture)
         Try
             sql = $"select * from Produtos where Nome='{txt_nome.Text}'"
             rs = db.Execute(sql)
@@ -33,22 +37,38 @@ Public Class Form1
                     '{txt_categoria.Text}',
                     '{txt_empresa.Text}',
                     '{txt_cliente.Text}',
-                    {txt_custo.Text},
-                    {txt_preco.Text},
+                    {custoSQL},
+                    {precoSQL},
                     '{cmb_data_venda.Value:yyyy-MM-dd}',
                     CASE 
-                        WHEN {txt_custo.Text} > 0 
-                        THEN (({txt_preco.Text} - {txt_custo.Text}) / {txt_custo.Text}) * 100
+                        WHEN {custoSQL} > 0 
+                        THEN ({precoSQL} - {custoSQL})
                         ELSE 0
                     END, '{diretorio}')"
                 rs = db.Execute(sql)
                 MsgBox("Dados gravados com sucesso!", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "AVISO")
-                Limpar_cadastro()
-                Carregar_dados()
+
             Else
-                MsgBox("Produto já cadastrado!", MsgBoxStyle.Exclamation + MsgBoxStyle.OkOnly, "AVISO")
+                sql = $"update Produtos set nome='{txt_nome.Text}', 
+                                             categoria='{txt_categoria.Text}',
+                                             empresa_distribuidora='{txt_empresa.Text}',
+                                             cliente='{txt_cliente.Text}',
+                                             custo={custoSQL},
+                                             preco={precoSQL},
+                                             data_venda='{cmb_data_venda.Value:yyyy-MM-dd}',
+                                             lucro = CASE 
+                                                WHEN {custoSQL} > 0 
+                                                THEN ({precoSQL} - {custoSQL})
+                                             ELSE 0
+                                             END,
+                                             img_foto='{diretorio}'
+                                             where id='{aux_id}'"
+                rs = db.Execute(sql)
+                MsgBox("Dados editados com sucesso!", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "AVISO")
 
             End If
+            Limpar_cadastro()
+            Carregar_dados()
 
         Catch ex As Exception
             MsgBox("Erro ao Gravar: " & ex.Message)
@@ -71,8 +91,7 @@ Public Class Form1
                 cont = 0
                 .Rows.Clear()
                 Do While rs.EOF = False 'Faça enquanto existir registros
-                    cont = cont + 1
-                    .Rows.Add(cont, rs.Fields(1).Value, rs.Fields(2).Value, rs.Fields(3).Value, rs.Fields(4).Value, rs.Fields(5).Value, rs.Fields(6).Value, rs.Fields(7).Value, rs.Fields(8).Value, rs.Fields(9).Value, rs.Fields(10))
+                    .Rows.Add(rs.Fields(0).Value, rs.Fields(1).Value, rs.Fields(2).Value, rs.Fields(3).Value, rs.Fields(4).Value, rs.Fields(5).Value, rs.Fields(6).Value, rs.Fields(7).Value, rs.Fields(8).Value)
                     rs.MoveNext() 'Mover para próximo registro
                 Loop
 
@@ -81,4 +100,38 @@ Public Class Form1
             MsgBox("Erro ao carregar dados", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "ATENÇÃO")
         End Try
     End Sub
+
+    Private Sub Dgv_dados_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_dados.CellContentClick
+        Try
+            With dgv_dados
+                If .CurrentRow.Cells(9).Selected = True Then
+                    aux_id = .CurrentRow.Cells(0).Value
+                    sql = $"select * from Produtos where id='{aux_id}'"
+                    rs = db.Execute(sql)
+
+                    txt_nome.Text = rs.Fields(1).Value
+                    txt_categoria.Text = rs.Fields(2).Value
+                    txt_empresa.Text = rs.Fields(3).Value
+                    txt_cliente.Text = rs.Fields(4).Value
+                    txt_custo.Text = rs.Fields(5).Value
+                    txt_preco.Text = rs.Fields(6).Value
+                    cmb_data_venda.Value = rs.Fields(7).Value
+
+                ElseIf .CurrentRow.Cells(10).Selected = True Then
+                    aux_id = .CurrentRow.Cells(0).Value
+                    resp = MsgBox("Deseja excluir o Produto de ID: " & aux_id & "?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "ATENÇÃO")
+                    If resp = MsgBoxResult.Yes Then
+                        sql = $"delete from Produtos where id='{aux_id}'"
+                        rs = db.Execute(sql)
+                        Carregar_dados()
+                    End If
+                Else
+                    Exit Sub
+                End If
+            End With
+        Catch ex As Exception
+            Exit Sub
+        End Try
+    End Sub
+
 End Class
